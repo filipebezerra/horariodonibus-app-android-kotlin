@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="busStation"
+            type="dev.filipebezerra.apps.horariodonibus.data.BusStation"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/normal_spacing"
+        >
+
+        <TextView
+            android:id="@+id/line_number_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/small_spacing"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="?attr/colorPrimary"
+            app:drawableStartCompat="@drawable/ic_bus_16"
+            app:layout_constraintEnd_toStartOf="@+id/next_trip_time_text"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{busStation.lineNumber}"
+            tools:text="035"
+            />
+
+        <TextView
+            android:id="@+id/line_destination_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_spacing"
+            android:drawablePadding="@dimen/small_spacing"
+            android:textAppearance="?attr/textAppearanceBody1"
+            app:drawableStartCompat="@drawable/ic_location_on_16"
+            app:layout_constraintEnd_toStartOf="@+id/next_trip_time_text"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/line_number_text"
+            app:layout_constraintTop_toBottomOf="@+id/line_number_text"
+            android:text="@{busStation.destination}"
+            tools:text="5698 - Avenida 85"
+            />
+
+        <TextView
+            android:id="@+id/next_trip_time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceCaption"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:relativeTimeSpan="@{busStation.nextTrip.estimatedArrivalTime}"
+            tools:text="5 min"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nearby_bus_stations">Pontos Próximos</string>
+    <string name="show_nearby_bus_stations">Mostrar pontos de ônibus próximos</string>
+    <string name="last_search">Últimos pesquisados</string>
+</resources>
