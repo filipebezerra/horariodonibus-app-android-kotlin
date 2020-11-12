@@ -89,8 +89,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider_view"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/bus_station_item"
-            app:list="@{viewModel.busStations}"
+            tools:listitem="@layout/bus_line_item"
+            app:busLineList="@{viewModel.busLines}"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,4 +3,5 @@
     <string name="nearby_bus_stations">Nearby bus stations</string>
     <string name="show_nearby_bus_stations">Show nearby bus stations</string>
     <string name="last_search">Last Searched</string>
+    <string name="nearby_stations_radius">Bus stations within 1km radius</string>
 </resources>

@@ -1,4 +1,4 @@
-package dev.filipebezerra.apps.horariodonibus.ui.home.dashboard
+package dev.filipebezerra.apps.horariodonibus.ui.nearbystations
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,35 +10,36 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import dev.filipebezerra.apps.horariodonibus.databinding.DashboardScreenBinding
-import dev.filipebezerra.apps.horariodonibus.ui.util.event.EventObserver
-import dev.filipebezerra.apps.horariodonibus.ui.home.HomeScreenDirections.Companion.actionHomeScreenToNearbyStationsScreen as toNearbyStationsScreen
+import dev.filipebezerra.apps.horariodonibus.databinding.NearbyStationsScreenScreenBinding
 
-class DashboardScreen : Fragment() {
+class NearbyStationsScreen : Fragment() {
 
-    private val screenViewModel: DashboardViewModel by viewModels()
+    private val screenViewModel: NearbyStationsScreenViewModel by viewModels()
 
-    private lateinit var viewBinding: DashboardScreenBinding
+    private lateinit var viewBinding: NearbyStationsScreenScreenBinding
 
-    private lateinit var busLineAdapter: BusLineAdapter
+    private lateinit var busStationAdapter: BusStationAdapter
 
     private val navController: NavController by lazy { findNavController() }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = DashboardScreenBinding.inflate(inflater)
+    ): View? = NearbyStationsScreenScreenBinding.inflate(inflater)
         .apply {
             viewBinding = this
             viewModel = screenViewModel
             viewBinding.lifecycleOwner = viewLifecycleOwner
-            createBusLineListAdapter()
-            subscribeUi()
+            createBusStationListAdapter()
+            setupToolbar()
         }
         .root
 
-    private fun createBusLineListAdapter() {
+    private fun setupToolbar() {
+        viewBinding.toolbar.setNavigationOnClickListener { navController.navigateUp() }
+    }
+
+    private fun createBusStationListAdapter() {
         val linearLayoutManager = LinearLayoutManager(viewBinding.busStationList.context)
         val dividerItemDecoration = DividerItemDecoration(context, linearLayoutManager.orientation)
 
@@ -47,15 +48,9 @@ class DashboardScreen : Fragment() {
             addItemDecoration(dividerItemDecoration)
         }
 
-        BusLineAdapter().also {
+        BusStationAdapter().also {
             viewBinding.busStationList.adapter = it
-            busLineAdapter = it
+            busStationAdapter = it
         }
-    }
-
-    private fun subscribeUi() {
-        screenViewModel.navigateToNearbyStations.observe(viewLifecycleOwner, EventObserver {
-            navController.navigate(toNearbyStationsScreen())
-        })
     }
 }

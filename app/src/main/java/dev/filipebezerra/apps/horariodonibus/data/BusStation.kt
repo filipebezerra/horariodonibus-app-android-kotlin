@@ -1,8 +1,9 @@
 package dev.filipebezerra.apps.horariodonibus.data
 
 data class BusStation(
-    val lineNumber: String,
-    val destination: String,
-    val nextTrip: BusTrip?,
-    val followingTrip: BusTrip?
+    val stationNumber: String,
+    val address: String,
+    val latitude: String,
+    val longitude: String,
+    val lines: List<BusLine>,
 )

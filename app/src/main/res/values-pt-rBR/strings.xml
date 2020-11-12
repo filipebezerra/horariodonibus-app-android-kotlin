@@ -3,4 +3,5 @@
     <string name="nearby_bus_stations">Pontos Próximos</string>
     <string name="show_nearby_bus_stations">Mostrar pontos de ônibus próximos</string>
     <string name="last_search">Últimos pesquisados</string>
+    <string name="nearby_stations_radius">Pontos em um raio de 1km</string>
 </resources>

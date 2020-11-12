@@ -3,18 +3,24 @@ package dev.filipebezerra.apps.horariodonibus.ui.home.dashboard
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import dev.filipebezerra.apps.horariodonibus.data.BusStation
+import dev.filipebezerra.apps.horariodonibus.data.BusLine
 import dev.filipebezerra.apps.horariodonibus.data.BusTrip
+import dev.filipebezerra.apps.horariodonibus.ui.util.event.Event
+import dev.filipebezerra.apps.horariodonibus.ui.util.ext.postEvent
 
 class DashboardViewModel : ViewModel() {
 
-    private val _busStations = MutableLiveData<List<BusStation>>()
-    val busStations: LiveData<List<BusStation>>
-        get() = _busStations
+    private val _busLines = MutableLiveData<List<BusLine>>()
+    val busLines: LiveData<List<BusLine>>
+        get() = _busLines
+
+    private val _navigateToNearbyStations = MutableLiveData<Event<Any>>()
+    val navigateToNearbyStations: LiveData<Event<Any>>
+        get() = _navigateToNearbyStations
 
     init {
-        _busStations.value = mutableListOf(
-            BusStation(
+        _busLines.value = listOf(
+            BusLine(
                 "035",
                 "5698 - Avenida 85",
                 BusTrip(
@@ -32,7 +38,7 @@ class DashboardViewModel : ViewModel() {
                     89
                 )
             ),
-            BusStation(
+            BusLine(
                 "132",
                 "ITANHANGA",
                 BusTrip(
@@ -44,7 +50,7 @@ class DashboardViewModel : ViewModel() {
                 ),
                 null
             ),
-            BusStation(
+            BusLine(
                 "270",
                 "CENTRO",
                 BusTrip(
@@ -59,7 +65,5 @@ class DashboardViewModel : ViewModel() {
         )
     }
 
-    fun showNearbyBusStations() {
-
-    }
+    fun showNearbyBusStations() = _navigateToNearbyStations.postEvent(true)
 }

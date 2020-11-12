@@ -6,8 +6,8 @@
 
     <data>
         <variable
-            name="busStation"
-            type="dev.filipebezerra.apps.horariodonibus.data.BusStation"
+            name="busLine"
+            type="dev.filipebezerra.apps.horariodonibus.data.BusLine"
             />
     </data>
 
@@ -29,7 +29,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@{busStation.lineNumber}"
+            android:text="@{busLine.lineNumber}"
             tools:text="035"
             />
 
@@ -45,7 +45,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/line_number_text"
             app:layout_constraintTop_toBottomOf="@+id/line_number_text"
-            android:text="@{busStation.destination}"
+            android:text="@{busLine.destination}"
             tools:text="5698 - Avenida 85"
             />
 
@@ -57,7 +57,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:relativeTimeSpan="@{busStation.nextTrip.estimatedArrivalTime}"
+            app:relativeTimeSpan="@{busLine.nextTrip.estimatedArrivalTime}"
             tools:text="5 min"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
