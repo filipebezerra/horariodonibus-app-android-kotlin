@@ -10,13 +10,13 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import dev.filipebezerra.apps.horariodonibus.databinding.NearbyStationsScreenScreenBinding
+import dev.filipebezerra.apps.horariodonibus.databinding.NearbyStationsScreenBinding
 
 class NearbyStationsScreen : Fragment() {
 
-    private val screenViewModel: NearbyStationsScreenViewModel by viewModels()
+    private val nearbyStationsViewModel: NearbyStationsViewModel by viewModels()
 
-    private lateinit var viewBinding: NearbyStationsScreenScreenBinding
+    private lateinit var viewBinding: NearbyStationsScreenBinding
 
     private lateinit var busStationAdapter: BusStationAdapter
 
@@ -25,11 +25,11 @@ class NearbyStationsScreen : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = NearbyStationsScreenScreenBinding.inflate(inflater)
+    ): View? = NearbyStationsScreenBinding.inflate(inflater)
         .apply {
             viewBinding = this
-            viewModel = screenViewModel
-            viewBinding.lifecycleOwner = viewLifecycleOwner
+            viewModel = nearbyStationsViewModel
+            lifecycleOwner = viewLifecycleOwner
             createBusStationListAdapter()
             setupToolbar()
         }

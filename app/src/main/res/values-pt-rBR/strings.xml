@@ -4,4 +4,6 @@
     <string name="show_nearby_bus_stations">Mostrar pontos de ônibus próximos</string>
     <string name="last_search">Últimos pesquisados</string>
     <string name="nearby_stations_radius">Pontos em um raio de 1km</string>
+    <string name="station_bus_lines">Linhas de ônibus neste ponto</string>
+    <string name="icon_continue_content_desc">Toque para continuar a navegar</string>
 </resources>

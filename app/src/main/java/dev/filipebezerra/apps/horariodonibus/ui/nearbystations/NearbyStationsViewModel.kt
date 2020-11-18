@@ -5,8 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dev.filipebezerra.apps.horariodonibus.data.BusLine
 import dev.filipebezerra.apps.horariodonibus.data.BusStation
+import dev.filipebezerra.apps.horariodonibus.data.BusTrip
+import org.joda.time.DateTime
+import org.joda.time.LocalDateTime
+import org.joda.time.format.ISODateTimeFormat
 
-class NearbyStationsScreenViewModel : ViewModel() {
+class NearbyStationsViewModel : ViewModel() {
 
     private val _busStations = MutableLiveData<List<BusStation>>()
     val busStations: LiveData<List<BusStation>>
@@ -23,7 +27,13 @@ class NearbyStationsScreenViewModel : ViewModel() {
                     BusLine(
                         lineNumber = "004",
                         destination = "T. Garavelo / Centro - Eixo T-9",
-                        nextTrip = null,
+                        nextTrip = BusTrip(
+                            "real",
+                            "4040",
+                            plannedArrivalTime = ISODateTimeFormat.basicDateTime().print(LocalDateTime.now().plusMinutes(10)),
+                            estimatedArrivalTime = ISODateTimeFormat.basicDateTime().print(LocalDateTime.now().plusMinutes(11)),
+                            arrivalForecast = 1
+                        ),
                         followingTrip = null,
                     ),
                     BusLine(

@@ -26,6 +26,22 @@
         android:id="@+id/nearby_stations_screen"
         android:name="dev.filipebezerra.apps.horariodonibus.ui.nearbystations.NearbyStationsScreen"
         android:label="@string/nearby_bus_stations"
-        tools:layout="@layout/nearby_stations_screen_screen"
-        />
+        tools:layout="@layout/nearby_stations_screen"
+        >
+        <action
+            android:id="@+id/action_nearby_stations_to_station_bus_lines"
+            app:destination="@id/station_bus_lines_screen"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/station_bus_lines_screen"
+        android:name="dev.filipebezerra.apps.horariodonibus.ui.stationbuslines.StationBusLinesScreen"
+        tools:layout="@layout/station_bus_lines_screen"
+        >
+        <argument
+            android:name="stationNumber"
+            app:argType="string"
+            />
+    </fragment>
 </navigation>

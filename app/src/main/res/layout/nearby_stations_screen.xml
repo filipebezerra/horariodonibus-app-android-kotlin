@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="dev.filipebezerra.apps.horariodonibus.ui.nearbystations.NearbyStationsScreenViewModel"
+            type="dev.filipebezerra.apps.horariodonibus.ui.nearbystations.NearbyStationsViewModel"
             />
     </data>
 

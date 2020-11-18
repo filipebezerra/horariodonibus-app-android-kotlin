@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "Horário d'Ônibus"
+    rootProject.name = "Horário d'Ônibus"

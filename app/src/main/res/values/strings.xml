@@ -4,4 +4,6 @@
     <string name="show_nearby_bus_stations">Show nearby bus stations</string>
     <string name="last_search">Last Searched</string>
     <string name="nearby_stations_radius">Bus stations within 1km radius</string>
+    <string name="station_bus_lines">Bus lines at this station</string>
+    <string name="icon_continue_content_desc">Touch to continue to navigate</string>
 </resources>

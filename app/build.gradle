@@ -76,9 +76,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.lifecycle_version"
 
     // Third-parties
-    // Joda-Time
     implementation 'net.danlew:android.joda:2.10.7'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
 
     // Testing
     testImplementation "junit:junit:$rootProject.junit_version"

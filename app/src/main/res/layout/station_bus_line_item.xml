@@ -6,12 +6,8 @@
 
     <data>
         <variable
-            name="clickListener"
-            type="android.view.View.OnClickListener"
-            />
-        <variable
-            name="busStation"
-            type="dev.filipebezerra.apps.horariodonibus.data.BusStation"
+            name="busLine"
+            type="dev.filipebezerra.apps.horariodonibus.data.BusLine"
             />
     </data>
 
@@ -20,37 +16,36 @@
         android:layout_height="wrap_content"
         android:minHeight="?attr/listPreferredItemHeight"
         android:padding="@dimen/normal_spacing"
-        android:clickable="true"
-        android:focusable="true"
-        android:onClick="@{clickListener}"
         >
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/station_image"
+            android:id="@+id/line_number_image"
             android:layout_width="56dp"
             android:layout_height="56dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/ic_bus_stop"
+            tools:src="@drawable/ic_bus_stop"
+            app:textDrawable="@{busLine.lineNumber}"
             />
 
         <TextView
-            android:id="@+id/station_number_text"
+            android:id="@+id/next_trip_arrival_time_text"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/normal_spacing"
             android:layout_marginBottom="@dimen/smallest_spacing"
             android:layout_marginEnd="@dimen/small_spacing"
-            android:text="@{busStation.stationNumber}"
+            android:drawablePadding="@dimen/small_spacing"
             android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableStartCompat="@drawable/ic_schedule_24"
             app:layout_constraintBottom_toTopOf="@+id/station_street_text"
-            app:layout_constraintEnd_toStartOf="@+id/station_distance_text"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/station_image"
+            app:layout_constraintEnd_toStartOf="@+id/icon_continue_image"
+            app:layout_constraintStart_toEndOf="@+id/line_number_image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread_inside"
-            tools:text="@tools:sample/us_zipcodes"
+            app:relativeTimeSpan="@{busLine.nextTrip.estimatedArrivalTime}"
+            tools:text="15min"
             />
 
         <TextView
@@ -58,32 +53,28 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/smallest_spacing"
-            android:drawablePadding="@dimen/small_spacing"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@{busStation.address}"
+            android:text="@{busLine.destination}"
             android:textAppearance="?attr/textAppearanceBody1"
-            app:drawableStartCompat="@drawable/ic_location_on_16"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/station_number_text"
+            app:layout_constraintEnd_toEndOf="@+id/next_trip_arrival_time_text"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/station_number_text"
-            app:layout_constraintTop_toBottomOf="@+id/station_number_text"
-            tools:text="@tools:sample/cities"
+            app:layout_constraintStart_toStartOf="@+id/next_trip_arrival_time_text"
+            app:layout_constraintTop_toBottomOf="@+id/next_trip_arrival_time_text"
+            tools:text="T. Garavelo / Centro / Eixo T-9"
             />
 
-        <TextView
-            android:id="@+id/station_distance_text"
+        <ImageView
+            android:id="@+id/icon_continue_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/small_spacing"
-            android:textAppearance="?attr/textAppearanceCaption"
-            app:drawableEndCompat="@drawable/ic_chevron_right_24"
+            android:contentDescription="@string/icon_continue_content_desc"
+            app:srcCompat="@drawable/ic_chevron_right_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:distanceTo="@{busStation}"
-            tools:text="150m"
             />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
