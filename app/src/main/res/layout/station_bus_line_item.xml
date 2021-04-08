@@ -9,6 +9,10 @@
             name="busLine"
             type="dev.filipebezerra.apps.horariodonibus.data.BusLine"
             />
+        <variable
+            name="listener"
+            type="dev.filipebezerra.apps.horariodonibus.ui.stationbuslines.StationBusLineItemListener"
+            />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,6 +20,9 @@
         android:layout_height="wrap_content"
         android:minHeight="?attr/listPreferredItemHeight"
         android:padding="@dimen/normal_spacing"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{() -> listener.onItemClick(busLine)}"
         >
 
         <de.hdodenhof.circleimageview.CircleImageView

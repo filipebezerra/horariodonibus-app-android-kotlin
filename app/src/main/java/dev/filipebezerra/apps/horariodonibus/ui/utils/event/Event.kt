@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.filipebezerra.apps.horariodonibus.ui.util.event
+package dev.filipebezerra.apps.horariodonibus.ui.utils.event
 
 /**
  * Used as a wrapper for data that is exposed via a LiveData that represents an event.

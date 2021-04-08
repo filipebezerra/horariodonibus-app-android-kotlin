@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amulyakhare.textdrawable.TextDrawable
 import dev.filipebezerra.apps.horariodonibus.R
 import dev.filipebezerra.apps.horariodonibus.data.BusLine
-import dev.filipebezerra.apps.horariodonibus.ui.util.ext.px
+import dev.filipebezerra.apps.horariodonibus.ui.utils.ext.px
 
 @BindingAdapter("stationBusLineList")
 fun bindStationBusLineList(recyclerView: RecyclerView, busLineList: List<BusLine>) =

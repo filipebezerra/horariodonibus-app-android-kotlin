@@ -1,4 +1,4 @@
-package dev.filipebezerra.apps.horariodonibus.ui.util.ext
+package dev.filipebezerra.apps.horariodonibus.ui.utils.ext
 
 import android.content.res.Resources
 

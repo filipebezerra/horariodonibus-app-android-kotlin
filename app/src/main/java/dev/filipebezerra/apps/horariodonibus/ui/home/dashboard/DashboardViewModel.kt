@@ -5,8 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dev.filipebezerra.apps.horariodonibus.data.BusLine
 import dev.filipebezerra.apps.horariodonibus.data.BusTrip
-import dev.filipebezerra.apps.horariodonibus.ui.util.event.Event
-import dev.filipebezerra.apps.horariodonibus.ui.util.ext.postEvent
+import dev.filipebezerra.apps.horariodonibus.ui.utils.event.Event
+import dev.filipebezerra.apps.horariodonibus.ui.utils.ext.postEvent
+import org.joda.time.DateTime
+import org.joda.time.format.DateTimeFormatter
 
 class DashboardViewModel : ViewModel() {
 
@@ -26,15 +28,15 @@ class DashboardViewModel : ViewModel() {
                 BusTrip(
                     "Tempo Real",
                     "50290",
-                    "2020-11-11T03:24:35-03:00",
-                    "2020-11-11T04:24:35-03:00",
+                    DateTime.now().plusMinutes(20).toString(),
+                    DateTime.now().plusMinutes(30).toString(),
                     37
                 ),
                 BusTrip(
                     "Tempo Real",
                     "50156",
-                    "2020-11-11T03:25:14-03:00",
-                    "2020-11-11T04:25:14-03:00",
+                    DateTime.now().plusMinutes(30).toString(),
+                    DateTime.now().plusHours(1).toString(),
                     89
                 )
             ),
@@ -44,8 +46,8 @@ class DashboardViewModel : ViewModel() {
                 BusTrip(
                     "Tempo Real",
                     "40024",
-                    "2020-11-11T03:04:22-03:00",
-                    "2020-11-11T04:04:22-03:00",
+                    DateTime.now().plusMinutes(5).toString(),
+                    DateTime.now().plusMinutes(16).toString(),
                     68
                 ),
                 null
@@ -56,8 +58,8 @@ class DashboardViewModel : ViewModel() {
                 BusTrip(
                     "Tempo Real",
                     "40045",
-                    "2020-11-11T03:33:15-03:00",
-                    "2020-11-11T04:33:15-03:00",
+                    DateTime.now().plusMinutes(15).toString(),
+                    DateTime.now().plusMinutes(45).toString(),
                     37
                 ),
                 null

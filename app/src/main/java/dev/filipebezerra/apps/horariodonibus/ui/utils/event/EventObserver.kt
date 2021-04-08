@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.filipebezerra.apps.horariodonibus.ui.util.event
+package dev.filipebezerra.apps.horariodonibus.ui.utils.event
 
 import androidx.lifecycle.Observer
 

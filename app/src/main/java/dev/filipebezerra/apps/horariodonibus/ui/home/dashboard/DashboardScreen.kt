@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.filipebezerra.apps.horariodonibus.databinding.DashboardScreenBinding
-import dev.filipebezerra.apps.horariodonibus.ui.util.event.EventObserver
+import dev.filipebezerra.apps.horariodonibus.ui.utils.event.EventObserver
 import dev.filipebezerra.apps.horariodonibus.ui.home.HomeScreenDirections.Companion.actionHomeScreenToNearbyStationsScreen as toNearbyStationsScreen
 
 class DashboardScreen : Fragment() {
@@ -28,11 +28,11 @@ class DashboardScreen : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = DashboardScreenBinding.inflate(inflater)
+    ): View = DashboardScreenBinding.inflate(inflater)
         .apply {
             viewBinding = this
             viewModel = screenViewModel
-            viewBinding.lifecycleOwner = viewLifecycleOwner
+            lifecycleOwner = viewLifecycleOwner
             createBusLineListAdapter()
             subscribeUi()
         }

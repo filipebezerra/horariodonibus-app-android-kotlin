@@ -13,6 +13,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">@font/raleway_bold</item>
+        <item name="fontFamily">@font/raleway_bold</item>
+
+        <item name="android:colorBackground">#F1F5F7</item>
+        <item name="colorOnBackground">#000000</item>
     </style>
 
     <style name="Theme.HorarioDOnibus.NoActionBar">

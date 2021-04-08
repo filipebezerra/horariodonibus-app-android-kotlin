@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.filipebezerra.apps.horariodonibus.databinding.StationBusLinesScreenBinding
 import dev.filipebezerra.apps.horariodonibus.ui.stationbuslines.StationBusLinesViewModel.Companion.provideFactory
+import dev.filipebezerra.apps.horariodonibus.ui.utils.event.EventObserver
+import dev.filipebezerra.apps.horariodonibus.ui.stationbuslines.StationBusLinesScreenDirections.Companion.actionStationBusLinesToBusTrip as toBusTrip
 
 class StationBusLinesScreen : Fragment() {
 
@@ -57,7 +59,11 @@ class StationBusLinesScreen : Fragment() {
             addItemDecoration(dividerItemDecoration)
         }
 
-        StationBusLineAdapter().also {
+        StationBusLineAdapter(
+            StationBusLineItemListener { lineNumber ->
+                stationBusLinesViewModel.onBusLineSelected(lineNumber)
+            },
+        ).also {
             viewBinding.stationBusLineList.adapter = it
             stationBusLineAdapter = it
         }
@@ -67,5 +73,8 @@ class StationBusLinesScreen : Fragment() {
         stationBusLinesViewModel.busStation.observe(viewLifecycleOwner) {
             viewBinding.toolbar.subtitle = it.address
         }
+        stationBusLinesViewModel.navigateToBusTrip.observe(viewLifecycleOwner, EventObserver { busLineSelected ->
+            navController.navigate(toBusTrip(busLineSelected.stationNumber, busLineSelected.lineNumber))
+        })
     }
 }

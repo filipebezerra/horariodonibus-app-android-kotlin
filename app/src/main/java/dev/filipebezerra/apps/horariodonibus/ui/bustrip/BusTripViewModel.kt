@@ -1,25 +1,28 @@
-package dev.filipebezerra.apps.horariodonibus.ui.stationbuslines
+package dev.filipebezerra.apps.horariodonibus.ui.bustrip
 
 import androidx.lifecycle.*
 import dev.filipebezerra.apps.horariodonibus.data.BusLine
 import dev.filipebezerra.apps.horariodonibus.data.BusStation
 import dev.filipebezerra.apps.horariodonibus.data.BusTrip
-import dev.filipebezerra.apps.horariodonibus.ui.utils.event.Event
-import dev.filipebezerra.apps.horariodonibus.ui.utils.ext.postEvent
 import org.joda.time.LocalDateTime
 import org.joda.time.format.ISODateTimeFormat
 
-class StationBusLinesViewModel(private val stationNumber: String) : ViewModel() {
+class BusTripViewModel private constructor(
+    private val stationNumber: String,
+    private val selectedBusLineNumber: String,
+) : ViewModel() {
 
     private val _busStation = MutableLiveData<BusStation>()
-
     val busStation: LiveData<BusStation>
         get() = _busStation
-    val busLines: LiveData<List<BusLine>> = Transformations.map(_busStation) { it.lines }
 
-    private val _navigateToBusTrip = MutableLiveData<Event<BusLineSelected>>()
-    val navigateToBusTrip: LiveData<Event<BusLineSelected>>
-        get() = _navigateToBusTrip
+    val selectedBusLine = Transformations.map(_busStation) { busStation ->
+        busStation.lines.first { line -> line.lineNumber == selectedBusLineNumber }
+    }
+
+    val selectedBusLinePosition = Transformations.map(_busStation) { busStation ->
+        busStation.lines.indexOfFirst { line -> line.lineNumber == selectedBusLineNumber }
+    }
 
     init {
         _busStation.value = BusStation(
@@ -272,22 +275,17 @@ class StationBusLinesViewModel(private val stationNumber: String) : ViewModel() 
         )
     }
 
-    fun onBusLineSelected(lineNumber: String) {
-        _navigateToBusTrip.postEvent(BusLineSelected(stationNumber, lineNumber))
-    }
-
     companion object {
         @Suppress("UNCHECKED_CAST")
         fun provideFactory(
-            stationNumber: String
+            stationNumber: String,
+            selectedBusLineNumber: String,
         ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-                StationBusLinesViewModel(stationNumber) as T
+                BusTripViewModel(
+                    stationNumber,
+                    selectedBusLineNumber,
+                ) as T
         }
     }
 }
-
-data class BusLineSelected(
-    val stationNumber: String,
-    val lineNumber: String,
-)

@@ -5,4 +5,6 @@ data class BusLine(
     val destination: String,
     val nextTrip: BusTrip?,
     val followingTrip: BusTrip?
-)
+) {
+    override fun toString() = lineNumber
+}

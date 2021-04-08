@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import dev.filipebezerra.apps.horariodonibus.data.BusLine
 import dev.filipebezerra.apps.horariodonibus.databinding.BusLineItemBinding
 
-class BusLineAdapter : ListAdapter<BusLine, BusLineViewHolder>(BusLineDiffItemCallback()) {
+class BusLineAdapter : ListAdapter<BusLine, BusLineViewHolder>(BusLineDiffItemCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         BusLineViewHolder.from(parent)
 
@@ -39,7 +39,7 @@ class BusLineViewHolder private constructor(
     }
 }
 
-class BusLineDiffItemCallback : DiffUtil.ItemCallback<BusLine>() {
+object BusLineDiffItemCallback : DiffUtil.ItemCallback<BusLine>() {
     override fun areItemsTheSame(oldItem: BusLine, newItem: BusLine) =
         oldItem.lineNumber == newItem.lineNumber
 

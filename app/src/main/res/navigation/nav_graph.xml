@@ -31,6 +31,10 @@
         <action
             android:id="@+id/action_nearby_stations_to_station_bus_lines"
             app:destination="@id/station_bus_lines_screen"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             />
     </fragment>
 
@@ -41,6 +45,29 @@
         >
         <argument
             android:name="stationNumber"
+            app:argType="string"
+            />
+        <action
+            android:id="@+id/action_station_bus_lines_to_bus_trip"
+            app:destination="@id/bus_trip_screen"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bus_trip_screen"
+        android:name="dev.filipebezerra.apps.horariodonibus.ui.bustrip.BusTripScreen"
+        tools:layout="@layout/bus_trip_screen"
+        >
+        <argument
+            android:name="stationNumber"
+            app:argType="string"
+            />
+        <argument
+            android:name="selectedLineNumber"
             app:argType="string"
             />
     </fragment>

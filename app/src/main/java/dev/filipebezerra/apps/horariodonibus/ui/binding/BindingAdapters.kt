@@ -11,6 +11,7 @@ fun bindRelativeTimeSpan(textView: TextView, dateTimeText: String?) {
         textView.text = DateUtils.getRelativeTimeSpanString(
             textView.context,
             DateTime.parse(it),
+            DateUtils.FORMAT_ABBREV_RELATIVE
         )
     }
 }

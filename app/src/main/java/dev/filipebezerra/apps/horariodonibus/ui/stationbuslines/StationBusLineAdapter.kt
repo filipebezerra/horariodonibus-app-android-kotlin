@@ -8,22 +8,25 @@ import androidx.recyclerview.widget.RecyclerView
 import dev.filipebezerra.apps.horariodonibus.data.BusLine
 import dev.filipebezerra.apps.horariodonibus.databinding.StationBusLineItemBinding
 
-class StationBusLineAdapter :
+class StationBusLineAdapter(
+    private val itemListener: StationBusLineItemListener
+) :
     ListAdapter<BusLine, StationBusLineViewHolder>(StationBusLineDiffItemCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         StationBusLineViewHolder.from(parent)
 
     override fun onBindViewHolder(holderBusLine: StationBusLineViewHolder, position: Int) =
-        holderBusLine.bindTo(getItem(position))
+        holderBusLine.bindTo(getItem(position), itemListener)
 }
 
 class StationBusLineViewHolder private constructor(
     private val itemViewBinding: StationBusLineItemBinding
 ) : RecyclerView.ViewHolder(itemViewBinding.root) {
 
-    fun bindTo(item: BusLine) {
+    fun bindTo(item: BusLine, itemListener: StationBusLineItemListener) {
         itemViewBinding.apply {
             busLine = item
+            listener = itemListener
             executePendingBindings()
         }
     }
@@ -46,4 +49,8 @@ class StationBusLineDiffItemCallback : DiffUtil.ItemCallback<BusLine>() {
 
     override fun areContentsTheSame(oldItem: BusLine, newItem: BusLine) =
         oldItem == newItem
+}
+
+class StationBusLineItemListener(private val callback: (lineNumber: String) -> Unit) {
+    fun onItemClick(busLine: BusLine) = callback.invoke(busLine.lineNumber)
 }
