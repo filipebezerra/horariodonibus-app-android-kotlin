@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            android:theme="@style/Theme.HorarioDOnibus.AppBarOverlay"
+            android:theme="@style/Theme.HorariodOnibus.AppBarOverlay"
             >
 
             <com.google.android.material.appbar.CollapsingToolbarLayout

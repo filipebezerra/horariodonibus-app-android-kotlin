@@ -22,9 +22,13 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "String", "BASE_API_URL", "\"https://simapp.rmtcgoiania.com.br/\""
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_API_URL", "\"https://simapp.rmtcgoiania.com.br/\""
         }
     }
     compileOptions {

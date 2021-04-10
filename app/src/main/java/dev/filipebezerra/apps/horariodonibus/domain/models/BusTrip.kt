@@ -1,6 +1,6 @@
-package dev.filipebezerra.apps.horariodonibus.data
+package dev.filipebezerra.apps.horariodonibus.domain.models
 
-data class BusTrip  (
+data class BusTrip (
     val quality: String,
     val busNumber: String,
     val plannedArrivalTime: String,

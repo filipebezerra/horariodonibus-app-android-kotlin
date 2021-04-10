@@ -3,22 +3,22 @@ package dev.filipebezerra.apps.horariodonibus.ui.home.dashboard
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import dev.filipebezerra.apps.horariodonibus.data.BusLine
-import dev.filipebezerra.apps.horariodonibus.data.BusTrip
-import dev.filipebezerra.apps.horariodonibus.ui.utils.event.Event
-import dev.filipebezerra.apps.horariodonibus.ui.utils.ext.postEvent
+import androidx.lifecycle.ViewModelProvider
+import dev.filipebezerra.apps.horariodonibus.data.source.remote.BusStationService
+import dev.filipebezerra.apps.horariodonibus.domain.models.BusLine
+import dev.filipebezerra.apps.horariodonibus.domain.models.BusTrip
+import dev.filipebezerra.apps.horariodonibus.ui.base.ViewModelBase
+import dev.filipebezerra.apps.horariodonibus.ui.utils.navigation.NavigationCommand.To
 import org.joda.time.DateTime
-import org.joda.time.format.DateTimeFormatter
+import dev.filipebezerra.apps.horariodonibus.ui.home.HomeScreenDirections.Companion.actionHomeScreenToNearbyStationsScreen as nearbyStationsScreen
 
-class DashboardViewModel : ViewModel() {
+class DashboardViewModel(
+    private val busStationService: BusStationService
+) : ViewModelBase() {
 
     private val _busLines = MutableLiveData<List<BusLine>>()
     val busLines: LiveData<List<BusLine>>
         get() = _busLines
-
-    private val _navigateToNearbyStations = MutableLiveData<Event<Any>>()
-    val navigateToNearbyStations: LiveData<Event<Any>>
-        get() = _navigateToNearbyStations
 
     init {
         _busLines.value = listOf(
@@ -67,5 +67,16 @@ class DashboardViewModel : ViewModel() {
         )
     }
 
-    fun showNearbyBusStations() = _navigateToNearbyStations.postEvent(true)
+    fun showNearbyBusStations() {
+        navigationCommand.value = To(nearbyStationsScreen())
+    }
+
+    companion object {
+        @Suppress("UNCHECKED_CAST")
+        fun createViewModelFactory(busStationService: BusStationService) =
+            object : ViewModelProvider.Factory {
+                override fun <T : ViewModel?> create(modelClass: Class<T>): T =
+                    DashboardViewModel(busStationService) as T
+            }
+    }
 }

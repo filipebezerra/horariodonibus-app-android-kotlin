@@ -23,7 +23,7 @@
             android:id="@+id/app_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/Theme.HorarioDOnibus.AppBarOverlay"
+            android:theme="@style/Theme.HorariodOnibus.AppBarOverlay"
             >
 
             <androidx.appcompat.widget.Toolbar

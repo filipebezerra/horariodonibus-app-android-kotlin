@@ -1,9 +1,9 @@
 package dev.filipebezerra.apps.horariodonibus.ui.bustrip
 
 import androidx.lifecycle.*
-import dev.filipebezerra.apps.horariodonibus.data.BusLine
-import dev.filipebezerra.apps.horariodonibus.data.BusStation
-import dev.filipebezerra.apps.horariodonibus.data.BusTrip
+import dev.filipebezerra.apps.horariodonibus.domain.models.BusLine
+import dev.filipebezerra.apps.horariodonibus.domain.models.BusStation
+import dev.filipebezerra.apps.horariodonibus.domain.models.BusTrip
 import org.joda.time.LocalDateTime
 import org.joda.time.format.ISODateTimeFormat
 

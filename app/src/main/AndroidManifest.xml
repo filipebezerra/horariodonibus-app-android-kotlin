@@ -3,19 +3,22 @@
     package="dev.filipebezerra.apps.horariodonibus"
     >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-        android:name=".AndroidApplication"
+        android:name=".HorariodOnibusApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HorarioDOnibus"
+        android:theme="@style/Theme.HorariodOnibus"
         >
+
         <activity
-            android:name=".HorarioDOnibusActivity"
+            android:name=".HorariodOnibusActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.HorarioDOnibus.NoActionBar"
+            android:theme="@style/Theme.HorariodOnibus.NoActionBar"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts"

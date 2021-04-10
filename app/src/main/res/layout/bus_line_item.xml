@@ -7,7 +7,7 @@
     <data>
         <variable
             name="busLine"
-            type="dev.filipebezerra.apps.horariodonibus.data.BusLine"
+            type="dev.filipebezerra.apps.horariodonibus.domain.models.BusLine"
             />
     </data>
 

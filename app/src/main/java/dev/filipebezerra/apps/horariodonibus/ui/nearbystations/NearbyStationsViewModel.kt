@@ -3,10 +3,9 @@ package dev.filipebezerra.apps.horariodonibus.ui.nearbystations
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import dev.filipebezerra.apps.horariodonibus.data.BusLine
-import dev.filipebezerra.apps.horariodonibus.data.BusStation
-import dev.filipebezerra.apps.horariodonibus.data.BusTrip
-import org.joda.time.DateTime
+import dev.filipebezerra.apps.horariodonibus.domain.models.BusLine
+import dev.filipebezerra.apps.horariodonibus.domain.models.BusStation
+import dev.filipebezerra.apps.horariodonibus.domain.models.BusTrip
 import org.joda.time.LocalDateTime
 import org.joda.time.format.ISODateTimeFormat
 

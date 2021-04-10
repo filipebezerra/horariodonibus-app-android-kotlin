@@ -1,9 +1,9 @@
 package dev.filipebezerra.apps.horariodonibus.ui.stationbuslines
 
 import androidx.lifecycle.*
-import dev.filipebezerra.apps.horariodonibus.data.BusLine
-import dev.filipebezerra.apps.horariodonibus.data.BusStation
-import dev.filipebezerra.apps.horariodonibus.data.BusTrip
+import dev.filipebezerra.apps.horariodonibus.domain.models.BusLine
+import dev.filipebezerra.apps.horariodonibus.domain.models.BusStation
+import dev.filipebezerra.apps.horariodonibus.domain.models.BusTrip
 import dev.filipebezerra.apps.horariodonibus.ui.utils.event.Event
 import dev.filipebezerra.apps.horariodonibus.ui.utils.ext.postEvent
 import org.joda.time.LocalDateTime

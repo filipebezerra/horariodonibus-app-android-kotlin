@@ -7,7 +7,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import dev.filipebezerra.apps.horariodonibus.data.BusStation
+import dev.filipebezerra.apps.horariodonibus.domain.models.BusStation
 import dev.filipebezerra.apps.horariodonibus.databinding.NearbyBusStationItemBinding
 import dev.filipebezerra.apps.horariodonibus.ui.nearbystations.NearbyStationsScreenDirections.Companion.actionNearbyStationsToStationBusLines as toStationBusLines
 

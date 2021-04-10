@@ -10,19 +10,19 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import dev.filipebezerra.apps.horariodonibus.ServiceLocator
 import dev.filipebezerra.apps.horariodonibus.databinding.DashboardScreenBinding
-import dev.filipebezerra.apps.horariodonibus.ui.utils.event.EventObserver
-import dev.filipebezerra.apps.horariodonibus.ui.home.HomeScreenDirections.Companion.actionHomeScreenToNearbyStationsScreen as toNearbyStationsScreen
+import dev.filipebezerra.apps.horariodonibus.ui.base.FragmentBase
 
-class DashboardScreen : Fragment() {
+class DashboardScreen : FragmentBase() {
 
-    private val screenViewModel: DashboardViewModel by viewModels()
+    override val _viewModel: DashboardViewModel by viewModels {
+        DashboardViewModel.createViewModelFactory(ServiceLocator.provideBusStationService())
+    }
 
     private lateinit var viewBinding: DashboardScreenBinding
 
     private lateinit var busLineAdapter: BusLineAdapter
-
-    private val navController: NavController by lazy { findNavController() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,10 +31,9 @@ class DashboardScreen : Fragment() {
     ): View = DashboardScreenBinding.inflate(inflater)
         .apply {
             viewBinding = this
-            viewModel = screenViewModel
+            viewModel = _viewModel
             lifecycleOwner = viewLifecycleOwner
             createBusLineListAdapter()
-            subscribeUi()
         }
         .root
 
@@ -51,11 +50,5 @@ class DashboardScreen : Fragment() {
             viewBinding.busStationList.adapter = it
             busLineAdapter = it
         }
-    }
-
-    private fun subscribeUi() {
-        screenViewModel.navigateToNearbyStations.observe(viewLifecycleOwner, EventObserver {
-            navController.navigate(toNearbyStationsScreen())
-        })
     }
 }

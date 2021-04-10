@@ -11,7 +11,7 @@
             />
         <variable
             name="busStation"
-            type="dev.filipebezerra.apps.horariodonibus.data.BusStation"
+            type="dev.filipebezerra.apps.horariodonibus.domain.models.BusStation"
             />
     </data>
 

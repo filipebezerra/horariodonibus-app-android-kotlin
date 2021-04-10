@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import dev.filipebezerra.apps.horariodonibus.data.BusLine
+import dev.filipebezerra.apps.horariodonibus.domain.models.BusLine
 import dev.filipebezerra.apps.horariodonibus.databinding.StationBusLineItemBinding
 
 class StationBusLineAdapter(

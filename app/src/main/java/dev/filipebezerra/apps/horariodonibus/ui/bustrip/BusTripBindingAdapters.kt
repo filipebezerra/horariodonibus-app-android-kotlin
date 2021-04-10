@@ -5,7 +5,7 @@ import android.widget.AutoCompleteTextView
 import androidx.databinding.BindingAdapter
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import dev.filipebezerra.apps.horariodonibus.R
-import dev.filipebezerra.apps.horariodonibus.data.BusLine
+import dev.filipebezerra.apps.horariodonibus.domain.models.BusLine
 
 @BindingAdapter("busLineList")
 fun bindBusLineList(

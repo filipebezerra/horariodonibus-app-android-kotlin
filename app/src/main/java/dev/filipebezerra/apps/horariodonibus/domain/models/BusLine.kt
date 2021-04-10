@@ -1,4 +1,4 @@
-package dev.filipebezerra.apps.horariodonibus.data
+package dev.filipebezerra.apps.horariodonibus.domain.models
 
 data class BusLine(
     val lineNumber: String,

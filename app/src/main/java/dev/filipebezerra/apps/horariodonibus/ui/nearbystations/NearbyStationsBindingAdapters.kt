@@ -3,7 +3,7 @@ package dev.filipebezerra.apps.horariodonibus.ui.nearbystations
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import dev.filipebezerra.apps.horariodonibus.data.BusStation
+import dev.filipebezerra.apps.horariodonibus.domain.models.BusStation
 
 @BindingAdapter("busStationList")
 fun bindBusStationList(recyclerView: RecyclerView, busStationList: List<BusStation>) =
